@@ -1,5 +1,8 @@
 <div class="card">
     <div class="card-body">
-        <app-book-search-result *ngFor="let result of books" [book]="result"></app-book-search-result>
+      <div *ngIf="!books || books.length ===0">No books</div>
+<!--        <app-book-search-result *ngFor="let result of books" [book]="result" (click)="openDetails(result.id)"></app-book-search-result>-->
+         <app-book-search-result *ngFor="let result of books" [book]="result"
+                                 [routerLink]="['/','book', result?.id]"></app-book-search-result>
     </div>
   </div>

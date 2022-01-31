@@ -9,6 +9,10 @@ import { BookSearchResultsComponent } from './features/book-search/components/bo
 import { BookCategoriesComponent } from './features/book-search/components/book-categories/book-categories.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { BookSearchResultComponent } from './features/book-search/components/book-search-result/book-search-result.component';
+import { BookDetailsComponent } from './features/book-details/book-details.component';
+import { NotFoundComponent } from './features/not-found/not-found.component';
+import {HttpClientModule} from "@angular/common/http";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -18,10 +22,14 @@ import { BookSearchResultComponent } from './features/book-search/components/boo
     BookSearchResultsComponent,
     BookCategoriesComponent,
     HeaderComponent,
-    BookSearchResultComponent
+    BookSearchResultComponent,
+    BookDetailsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   bootstrap: [AppComponent]

@@ -1,21 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { Book } from '../../models/book.model';
-import { BookServiceService } from '../../services/book-service.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {Book} from '../../models/book.model';
+import {BookServiceService} from '../../services/book-service.service';
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-book-search-results',
   templateUrl: './book-search-results.component.html',
   styleUrls: ['./book-search-results.component.scss']
 })
-export class BookSearchResultsComponent implements OnInit {
+export class BookSearchResultsComponent {
 
-  constructor(readonly bookService: BookServiceService) {
+  @Input()
+  books?: Book[];
+  subscription?: Subscription;
+
+  constructor(private router: Router) {
   }
 
-  get books(): Book[] {
-    return this.bookService.getBooks();
-  }
-  ngOnInit(): void {
+  ngOnDestroy() {
+    this.subscription?.unsubscribe();
   }
 
+  openDetails(bookId: number): void {
+    this.router.navigate(['book', bookId]);
+  }
 }

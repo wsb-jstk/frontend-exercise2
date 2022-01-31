@@ -2,13 +2,10 @@
   <div class="card-body">
     <button
       *ngFor="let category of categories"
-      type="button"
+      [routerLinkActive]="'btn-primary'"
+      [routerLink]="['/','search',category]"
       class="btn"
-      (click)="selectCategory(category)"
-      [ngClass]="{
-            'btn-primary': selectedCategory === category,
-            'btn-outline-primary': selectedCategory !== category
-      }"
+      type="button"
     >
       {{ category }}
     </button>

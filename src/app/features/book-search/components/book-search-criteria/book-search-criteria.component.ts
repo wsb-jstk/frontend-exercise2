@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-book-search-criteria',
@@ -7,9 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookSearchCriteriaComponent implements OnInit {
 
-  constructor() { }
+  @Output()
+  newCriteria = new EventEmitter()
+
+  form: FormGroup = this.fb.group({
+    title: ['', maxChars(4)],
+    price: ['', Validators.pattern(/\d/)],
+    description: '',
+  });
+
+  constructor(private fb: FormBuilder) {
+  }
 
   ngOnInit(): void {
   }
 
+  search() {
+    this.newCriteria.emit(this.form.value);
+  }
 }
+
+const max10Chars: ValidatorFn = (control: AbstractControl): ValidationErrors | null => control.value.length > 10 ?
+  {  max10Chars: "Value is too long!"} : null;
+
+const maxChars =(max:number) : ValidatorFn => (control: AbstractControl): ValidationErrors | null => control.value.length > max ?
+  {  max10Chars: "Value is too long!"} : null;

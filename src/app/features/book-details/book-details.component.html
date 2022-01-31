@@ -1,0 +1,16 @@
+Details:
+
+<ng-container *ngIf="book">
+  <p>Book id: {{book.id}}</p>
+  <p>Book Title: {{book.title}}</p>
+  <p>Book author: {{book.author}}</p>
+
+
+  <button
+    [routerLink]="'../'+(book.id+1)"
+    class="btn btn-primary"
+    type="button"
+  >
+    Next book
+  </button>
+</ng-container>

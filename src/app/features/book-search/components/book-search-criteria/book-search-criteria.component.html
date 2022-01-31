@@ -1,5 +1,25 @@
 <div class="card">
-    <div class="card-body">
-      Tutaj kryteria
+  <div class="card-body">
+    <div class="container">
+      <div class="row" [formGroup]="form">
+        <div class="col">
+          <div class="mb-3">
+            <label class="form-label" for="title">Title</label>
+            <input class="form-control" id="title" type="text" formControlName="title" >
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="price">Price</label>
+            <input class="form-control" id="price" type="text" formControlName="price" >
+          </div>
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <label class="form-label" for="description">Description</label>
+            <input class="form-control" id="description" type="text" formControlName="description" >
+          </div>
+        </div>
+      </div>
     </div>
+    <button class="btn btn-primary" (click)="search()"    [disabled]="form.invalid">Search!</button>
   </div>
+</div>

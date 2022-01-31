@@ -2,7 +2,7 @@
     "book": [
         {
             "id": 1,
-            "title": "Pakiet Hyperion. Tomy 1-4: Hyperion, Upadek Hyperiona, Endymion, Triumf Endymiona",
+            "title": "Pakiet Hyperion2222. Tomy 1-4: Hyperion, Upadek Hyperiona, Endymion, Triumf Endymiona",
             "author": "Dan Simmons",
             "price": "143,74",
             "publisher": "MAG",
@@ -45,7 +45,7 @@
             "availability": 6,
             "cover_image":"https://cf-taniaksiazka.statiki.pl/images/large/CF9/9788367023153.jpg"
           }
-   
+
   ],
   "user": [
     {
